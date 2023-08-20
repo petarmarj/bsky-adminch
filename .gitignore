@@ -1,3 +1,4 @@
 /vendor/
 .env
 hashes.txt
+log.txt

@@ -4,10 +4,14 @@ require __DIR__ . '/vendor/autoload.php';
 
 use Piit\Bsky\BskyFunctions;
 
+BskyFunctions::log('Bot started.');
+
 BskyFunctions::init();
 BskyFunctions::login();
 
 $date = date("Y-m-d");
+
+BskyFunctions::log('Check Feed for date ' . $date . '.');
 
 $feed = \Laminas\Feed\Reader\Reader::import(
     'https://www.newsd.admin.ch/newsd/feeds/rss?lang=de&' .
@@ -39,3 +43,5 @@ foreach ($feed as $entry) {
 
     sleep(10);
 }
+
+BskyFunctions::log('Bot finished.');
